@@ -1,0 +1,93 @@
+import { Meta, Story, Canvas, Description } from '@storybook/addon-docs';
+import { componentWrapperDecorator } from '@storybook/angular';
+import { action } from '@storybook/addon-actions';
+import { PmCheckboxComponent, PmCheckboxState } from '../../../projects/innotec/src/lib/components/pm-checkbox/pm-checkbox.component';
+import { CheckboxData } from './data'
+
+<Meta title="Components/Checkbox/Checkbox-Default" component={PmCheckboxComponent} argTypes={{}} parameters={{
+  controls: { disabled: true },
+}} decorators={[
+  //👇 Wraps our stories with a decorator
+  componentWrapperDecorator(story => `<div style="margin: 5px;">${story}</div>`),
+]}/>
+
+<Description of={PmCheckboxComponent} />
+<Description markdown={`# Checkbox`}/>
+
+
+export const actionsData = {
+    onClicked: action('clicked on checkbox:'),
+};
+
+export const Template = args => ({
+  props: {
+    ...args,
+    onCheckboxActivated: actionsData.onClicked
+  },
+});
+
+
+
+This contains the **Checkboxes**.
+
+## Checkbox - Default
+
+<Canvas withToolbar isColumn>
+  <Story name="Default" args={{
+      ...CheckboxData,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Checkbox - Hover
+
+<Canvas withToolbar isColumn>
+  <Story name="Hover" args={{
+      ...CheckboxData,
+      hovered: true,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Checkbox - Single Active
+
+<Canvas withToolbar isColumn>
+  <Story name="OneActive" args={{
+      ...CheckboxData,
+      state: PmCheckboxState.ACTIVE,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Checkbox - Multiple Active
+
+<Canvas withToolbar isColumn>
+  <Story name="MultiActive" args={{
+      ...CheckboxData,
+      state: PmCheckboxState.MULTIACTIVE,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Checkbox - Disabled
+
+<Canvas withToolbar isColumn>
+  <Story name="Disabled" args={{
+      ...CheckboxData,
+      disabled: true
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<br/><br/>
+
+
+## Design
+
+
+[![XD-Checkboxes](https://img.shields.io/badge/-Checkboxes-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/aec6f38b-76a2-4b58-b371-63fac4c7e2fe-fb95/screen/2707f942-aa85-412a-ab85-d777aae10b64/)

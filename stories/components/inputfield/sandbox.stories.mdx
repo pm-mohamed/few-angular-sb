@@ -1,0 +1,117 @@
+import { Meta, Story, ArgsTable, Canvas, Props, Preview, Description } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import { PmInputfieldComponent } from '../../../projects/innotec/src/lib/components/pm-inputfield/pm-inputfield.component';
+import { PmIconComponent } from '../../../projects/innotec/src/lib/components/pm-icon/pm-icon.component';
+import { action } from '@storybook/addon-actions';
+import { InputFieldData } from './data';
+import {GetInputIconColorPipe} from "../../../projects/innotec/src/lib/components/pm-inputfield/get-input-icon-color.pipe";
+import {GetInputIconSizePipe} from "../../../projects/innotec/src/lib/components/pm-inputfield/get-input-icon-size.pipe";
+
+<Meta title="Components/Inputfield/Inputfield-Sandbox" component={PmInputfieldComponent} argTypes={{
+  noBorder: {
+    description: 'Defines the Border behaviour',
+    table: {
+      category: 'Visual',
+    },
+  },
+  icon: {
+    description: 'Defines the icon',
+    table: {
+      category: 'Visual',
+    },
+  },
+  withIcon: {
+    description: 'Defines the padding of the Icon',
+    table: {
+      category: 'Visual',
+    },
+  },
+  isLabelled: {
+    description: 'The label of the Input',
+    table: {
+      category: 'Texts',
+    },
+  },
+  iconSize: {
+    description: 'Defines the icon size',
+    table: {
+      category: 'Visual',
+    },
+  },
+  iconPosition: {
+    description: 'Defines the position of the icon',
+    table: {
+      category: 'Visual',
+    },
+  },
+  iconRotation: {
+    description: 'Defines the rotation of the icon',
+    table: {
+      category: 'Visual',
+    },
+  },
+  disabled: {
+    description: 'Defines the disabled behaviour',
+    table: {
+      category: 'Visual',
+      subcategory: 'Pseudo',
+    },
+  },
+  isReadOnlyProfileCircleLeftIcon: {
+    description: 'Defines the left Icon for Read Only Field',
+    table: {
+      category: 'Visual',
+    },
+  },
+  active: {
+    description: 'Defines the active State',
+    table: {
+      category: 'Visual',
+      subcategory: 'Pseudo',
+    },
+  },
+  type: {
+    description: 'Defines the visual behaviour',
+    table: {
+      category: 'Visual',
+    },
+  },
+}} parameters={{
+  controls: { disabled: true },
+  chromatic: { disableSnapshot: true },
+}} decorators={[
+  //👇 Import nested components
+  moduleMetadata({
+    declarations: [PmIconComponent, GetInputIconColorPipe, GetInputIconSizePipe]
+  })
+]}/>
+
+<Description markdown={`# Inputfield`}/>
+
+export const actionsData = {
+  onClicked: action('clicked on Inputfield:'),
+};
+export const Template = args => ({
+  props: {
+    ...args,
+    onClicked: actionsData.onClicked
+  },
+});
+
+This contains the **Inputfield-Sandbox**.
+
+## Sandbox
+
+<Story name="Sandbox" args={{
+  ...InputFieldData
+}}>
+  {Template.bind({})}
+</Story>
+
+<ArgsTable story="Sandbox" />
+
+<br/><br/>
+
+## Design
+
+[![XD-Inputfields](https://img.shields.io/badge/-Inputfields-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/aec6f38b-76a2-4b58-b371-63fac4c7e2fe-fb95/screen/72c1fefd-68ba-4366-b329-2e8198330b0d/specs/)

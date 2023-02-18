@@ -1,0 +1,9 @@
+@use '../../styles/utils/mixins' as m;
+@use '../../styles/utils/fonts' as f;
+
+@each $font, $fontValues in f.$fonts {
+  .#{$font} {
+      @include m.font-mixin($font);
+      width: fit-content;
+  }
+}

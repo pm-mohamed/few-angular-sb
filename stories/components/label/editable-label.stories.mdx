@@ -1,0 +1,48 @@
+import { Meta, Story, Canvas, Description } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import { PmLabelComponent, LabelType } from '../../../projects/innotec/src/lib/components/pm-label/pm-label.component.ts';
+import { PmIconComponent } from '../../../projects/innotec/src/lib/components/pm-icon/pm-icon.component';
+import { action } from '@storybook/addon-actions';
+import { LabelData } from './data'
+
+<Meta title="Components/Label/Label-Editable" argTypes={{}} parameters={{
+  controls: { disabled: true },
+}} component={PmLabelComponent} decorators={[
+  //👇 Import nested components
+  moduleMetadata({
+    declarations: [PmIconComponent]
+  })
+]}/>
+
+<Description of={PmLabelComponent} />
+<Description markdown={`# Label`}/>
+
+export const actionsData = {
+  onRemoveLabel: action('on remove label:'),
+};
+export const Template = args => ({
+  props: {
+    ...args,
+    onRemove: actionsData.onRemoveLabel
+  },
+});
+
+
+This contains definitions for **Editable Labels**.
+
+## Editable Labels
+
+<Canvas withToolbar isColumn>
+  <Story name="Label Editable" args={{
+      ...LabelData,
+      type: LabelType.EDITABLE,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<br/><br/>
+
+## Design
+
+[![XD-Labels](https://img.shields.io/badge/-Labels-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/aec6f38b-76a2-4b58-b371-63fac4c7e2fe-fb95/screen/793c0a5d-7a9a-4f81-b9ce-0db16dd271f4/specs/)

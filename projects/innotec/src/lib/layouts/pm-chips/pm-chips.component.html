@@ -1,0 +1,21 @@
+<div class="chips"
+    [class.chips--invisible]="chips.length < 1"
+  >
+  <pm-label
+    *ngFor="let chip of chips"
+    class="chips__chip"
+    [type]="disabled ? LabelType.INACTIVE : LabelType.EDITABLE"
+    [primaryText]="chip.primaryText"
+    [secondaryText]="chip.secondaryText"
+    (onRemove)="removeChip(chip)"
+  >
+  </pm-label>
+
+  <pm-label
+    *ngIf="chips.length > 1"
+    [type]="disabled ? LabelType.INACTIVE : LabelType.EDITABLE"
+    [primaryText]="removeAllText"
+    (onRemove)="removeAll()"
+  >
+  </pm-label>
+</div>

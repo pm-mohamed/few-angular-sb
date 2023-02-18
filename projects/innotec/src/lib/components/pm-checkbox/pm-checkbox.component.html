@@ -1,0 +1,16 @@
+<div class="checkbox"
+	[class.checkbox--checked]="this.state == ECheckboxState.ACTIVE"
+	[class.checkbox--checkedmulti]="this.state == ECheckboxState.MULTIACTIVE"
+	[class.checkbox--disabled]="disabled"
+	[class.checkbox--hovered]="hovered && !disabled"
+	(click)="checkboxOnClick()">
+
+    <!-- default input field -->
+	<input class="checkbox__field"
+		[class.checkbox--checked]="this.state == ECheckboxState.ACTIVE"
+		[class.checkbox--checkedmulti]="this.state == ECheckboxState.MULTIACTIVE"
+		type="checkbox"
+		checked="((this.state == ECheckboxState.ACTIVE) || (this.state == ECheckboxState.MULTIACTIVE))  ? 'checked' : ''"
+	/>
+	<span class="checkbox__checkmark"></span>
+</div>

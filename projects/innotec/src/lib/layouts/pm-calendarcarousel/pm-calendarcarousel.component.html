@@ -1,0 +1,78 @@
+<div class="carousel">
+  <div
+    class="carousel__controls"
+    [ngClass]="'carousel__controls--'+type"
+  >
+    <pm-button
+      *ngIf="type === ECarouselType.TOUR"
+      class="carousel__tour-create-button"
+      [label]="tourButtonLabel"
+      [type]="EButtonType.PRIMARY"
+      [active]="false"
+      [disabled]="false"
+      (onClicked)="onClicked.emit($event)"
+    ></pm-button>
+    <!--TODO: Replace with actual dropdown -->
+    <input class="carousel__dropdown">
+    <span class="carousel__week">{{selectedWeek}}</span>
+    <div class="carousel__buttons">
+      <!--TODO: Replace with actual button -->
+      <button class="carousel__button"><</button>
+      <!--TODO: Replace with actual button -->
+      <button class="carousel__button">></button>
+    </div>
+    <pm-button
+      *ngIf="type === ECarouselType.DRAG_AND_DROP"
+      class="carousel__drag-and-drop-button"
+      [label]="dndButtonLabel"
+      [type]="EButtonType.PRIMARY"
+      [icon]="EIcon.ADD_ACTION"
+      [iconRotation]="0"
+      [iconPosition]="EIconPosition.RIGHT"
+      [iconSize]="EIconSize.DEFAULT"
+      [active]="false"
+      [disabled]="false"
+      (onClicked)="onClicked.emit($event)"
+    ></pm-button>
+    <!-- TODO: Replace with actual filter button -->
+    <button
+      *ngIf="type === ECarouselType.TOUR"
+      class="carousel__tour-filter"
+    >Filter</button>
+    <!-- TODO: Replace with actual search button -->
+    <input
+      *ngIf="type === ECarouselType.TOUR"
+      class="carousel__tour-search"
+    >
+    <div
+      *ngIf="type === ECarouselType.FLEX"
+      class="carousel__flexible-columns-wrapper"
+    >
+      <span class="carousel__flexible-columns-hours">{{flexHours}}</span>
+      <span class="carousel__flexible-columns-info">{{flexInfo}}</span>
+    </div>
+  </div>
+  <div class="carousel__columns">
+    <div
+      *ngFor="let column of columns"
+      class="carousel__column"
+      [class.carousel__column--selected]="column.selected"
+    >
+      <span
+        class="carousel__day"
+        [class.carousel__day--selected]="column.selected"
+      >{{column.day}}
+      </span>
+      <span
+        class="carousel__date"
+        [class.carousel__date--selected]="column.selected"
+      >{{column.date}}
+      </span>
+      <span
+        class="carousel__duration"
+        [class.carousel__duration--selected]="column.selected"
+      >{{column.duration}}
+      </span>
+    </div>
+  </div>
+</div>

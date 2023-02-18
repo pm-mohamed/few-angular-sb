@@ -1,0 +1,104 @@
+@use '../../styles/utils/functions' as f;
+@use '../../styles/utils/mixins' as m;
+
+.input {
+  --input-border-disabled-color: var(--clr-neutral-900);
+  --input-bg: var(--clr-neutral-1500) 0% 0% no-repeat padding-box;
+  --input-disabled: var(--clr-neutral-1300 ) 0% 0% no-repeat padding-box;
+  --input-border-color: var(--clr-neutral-900);
+
+  &__left-icon{
+    position: absolute;
+    margin: f.rem(15) 0 0 f.rem(16);
+  }
+
+  &__right-icon{
+    display: inline-block;
+    margin: f.rem(15) 0 0 f.rem(-25);
+    position: absolute;
+  }
+
+  .input__user-circle {
+    @include m.font-mixin(copy-s-medium);
+    width: f.rem(32);
+    height: f.rem(32);
+    border-radius: 50%;
+    color: var(--clr-neutral-1500);
+    text-align: center;
+    background: var(--clr-neutral-300);
+    padding-top: f.rem(5);
+    margin-top: f.rem(5);
+    position: absolute;
+  }
+  &__textarea{
+    /* Layout Properties */
+    width: f.rem(312);
+    height: f.rem(160);
+    /* UI Properties */
+    background: var(--input-bg);
+    border: f.rem(1) solid var(--input-border-color);
+    border-radius: f.rem(4);
+  }
+
+  &__label{
+    display: block;
+    @include m.font-mixin(copy-s-medium);
+    color: var(--clr-neutral-700);
+  }
+
+  &__assistive-Text{
+    display: block;
+    /* UI Properties */
+    @include m.font-mixin(copy-s-medium);
+
+    &--error{
+      color: var(--clr-secondary-300);
+    }
+
+    &--default{
+      color: var(--clr-sixth-100);
+    }
+  }
+
+  .input__field{
+    @include m.font-mixin(copy-m-regular);
+    border: f.rem(1) solid var(--input-border-color);
+    border-radius: f.rem(4);
+    opacity: 1;
+    width: f.rem(312);
+    height: f.rem(48);
+    background: var(--input-bg);
+    color: var(--clr-neutral-500);
+    padding-left: f.rem(16);
+
+    &--active{
+      border: f.rem(1) solid var(--clr-neutral-300);
+      outline: none;
+    }
+
+    &--with-icon{
+      padding-left: f.rem(42);
+    }
+
+    &--error{
+      display: inline-block;
+      border: f.rem(1) solid var(--clr-secondary-300);
+      border-radius: f.rem(4);
+      opacity: 1;
+      background: var(--clr-secondary-500) 0% 0% no-repeat padding-box;
+    }
+
+    &--no-border{
+      border: none;
+    }
+
+    &--disabled {
+      background: var(--input-disabled);
+      pointer-events: none;
+    }
+
+    &--hovered, &:hover {
+      background: var(--clr-neutral-1300);
+    }
+  }
+}

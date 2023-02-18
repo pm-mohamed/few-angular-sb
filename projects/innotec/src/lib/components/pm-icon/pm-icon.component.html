@@ -1,0 +1,17 @@
+<div class="icon"
+        [class.icon--primary]="color===EIconColor.PRIMARY"
+        [class.icon--secondary]="color===EIconColor.SECONDARY"
+        [class.icon--third]="color===EIconColor.THIRD"
+        [class.icon--fourth]="color===EIconColor.FOURTH"
+        [class.icon--success]="color===EIconColor.SUCCESS"
+        [class.icon--danger]="color===EIconColor.DANGER"
+        [class.icon--disabled]="color===EIconColor.DISABLED"
+
+
+        [ngClass]="icon !== null ? 'icon--' + icon : ''"
+
+        [style.--icon-size.px]=size
+        [style.--icon-rotate.deg]=rotate
+        [style.--icon-weight]=weight
+    >
+</div>

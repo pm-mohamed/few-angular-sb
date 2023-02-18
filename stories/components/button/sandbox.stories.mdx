@@ -1,0 +1,106 @@
+import { Meta, Story, ArgsTable, Canvas, Props, Preview, Description } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import { PmButtonComponent } from '../../../projects/innotec/src/lib/components/pm-button/pm-button.component';
+import { PmIconComponent } from '../../../projects/innotec/src/lib/components/pm-icon/pm-icon.component';
+import { action } from '@storybook/addon-actions';
+import { ButtonData } from './data';
+import { GetIconSizePipe } from "../../../projects/innotec/src/lib/components/pm-button/get-icon-size.pipe.ts";
+import { GetIconColorPipe } from "../../../projects/innotec/src/lib/components/pm-button/get-icon-color.pipe.ts";
+
+<Meta title="Components/Button/Button-Sandbox" component={PmButtonComponent} argTypes={{
+    label: {
+      description: 'The label of the Button',
+      table: {
+        category: 'Texts',
+      },
+    },
+    type: {
+      description: 'Defines the visual behaviour',
+      table: {
+        category: 'Visual',
+      },
+    },
+    icon: {
+      description: 'Defines the icon',
+      table: {
+        category: 'Visual',
+      },
+    },
+    iconSize: {
+      description: 'Defines the icon size',
+      table: {
+        category: 'Visual',
+      },
+    },
+    iconPosition: {
+      description: 'Defines the position of the icon',
+      table: {
+        category: 'Visual',
+      },
+    },
+    iconRotation: {
+      description: 'Defines the rotation of the icon',
+      table: {
+        category: 'Visual',
+      },
+    },
+    active: {
+      description: 'Defines the active State',
+      table: {
+        category: 'Visual',
+        subcategory: 'Pseudo',
+      },
+    },
+    disabled: {
+      description: 'Defines the disabled behaviour',
+      table: {
+        category: 'Visual',
+        subcategory: 'Pseudo',
+      },
+    },
+    onClicked: {
+      description: "Will be notified when this button is clicked.",
+      table: {
+        category: 'Events',
+      },
+    },
+}} parameters={{
+  controls: { disabled: true },
+  chromatic: { disableSnapshot: true },
+}} decorators={[
+  //👇 Import nested components
+  moduleMetadata({
+    declarations: [PmIconComponent, GetIconSizePipe, GetIconColorPipe]
+  })
+]}/>
+
+<Description of={PmIconComponent} />
+<Description markdown={`# Buttons`}/>
+
+export const actionsData = {
+  onClicked: action('clicked on button:'),
+};
+export const Template = args => ({
+  props: {
+    ...args,
+    onClicked: actionsData.onClicked
+  },
+});
+
+This contains the **Buttons-Sandbox**.
+
+## Sandbox
+
+<Story name="Sandbox" args={{
+    ...ButtonData
+  }}>
+  {Template.bind({})}
+</Story>
+
+<ArgsTable story="Sandbox" />
+
+<br/><br/>
+
+## Design
+
+[![XD-Buttons](https://img.shields.io/badge/-Buttons-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/aec6f38b-76a2-4b58-b371-63fac4c7e2fe-fb95/screen/080cca3a-1be5-4721-9ae4-5cd1d7281843/specs/)

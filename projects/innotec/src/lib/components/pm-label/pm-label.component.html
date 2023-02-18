@@ -1,0 +1,17 @@
+<div
+    class="label"
+    [ngClass]="'label--'+type"
+    (click)="clickOnLabel()"
+    >
+    <span class="label__primary-text">{{primaryText}}</span>
+    <span class="label__secondary-text">{{secondaryText}}</span>
+    <pm-icon
+        *ngIf="type==ELabelType.EDITABLE"
+        class="label__remove"
+        [size]="10"
+        [weight]="900"
+        [rotate]="0"
+        [color]="IconColor.FOURTH"
+        [icon]="Icon.CLOSE_ACTION"
+    ></pm-icon>
+</div>

@@ -1,0 +1,190 @@
+import { Meta, Story, Canvas, Description } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import {
+  PmButtonComponent,
+  ButtonType,
+  labelPackaging,
+  LabelBio,
+  LabelRest,
+  labelGlass,
+  labelSpecial,
+  IconSize,
+  IconPosition
+} from '../../../projects/innotec/src/lib/components/pm-button/pm-button.component';
+import { PmIconComponent, Icon} from '../../../projects/innotec/src/lib/components/pm-icon/pm-icon.component';
+import { action } from '@storybook/addon-actions';
+import { ButtonData } from './data';
+import { GetIconSizePipe } from "../../../projects/innotec/src/lib/components/pm-button/get-icon-size.pipe.ts";
+import { GetIconColorPipe } from "../../../projects/innotec/src/lib/components/pm-button/get-icon-color.pipe.ts";
+
+<Meta title="Components/Button/Button-Label" component={PmButtonComponent} argTypes={{}} decorators={[
+  //👇 Import nested components
+   moduleMetadata({
+    declarations: [PmIconComponent, GetIconSizePipe, GetIconColorPipe]
+  })
+]}/>
+
+<Description of={PmIconComponent} />
+<Description markdown={`# Buttons`}/>
+
+export const actionsData = {
+  onClicked: action('clicked on button:'),
+};
+export const Template = args => ({
+  props: {
+    ...args,
+    onClicked: actionsData.onClicked
+  },
+});
+
+This contains definitions for all **Activation-Buttons** and **Label-Buttons**.
+
+## Label Button - No Label Markers (Activation buttons)
+
+<Canvas withToolbar isColumn>
+  <Story name="Label" args={{
+      ...ButtonData,
+      label: 'Di',
+      type: ButtonType.LABEL
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Label Active" args={{
+      ...ButtonData,
+      label: 'Di',
+      type: ButtonType.LABEL,
+      active: true
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Label Disabled" args={{
+      ...ButtonData,
+      label: 'Di',
+      type: ButtonType.LABEL,
+      disabled: true
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Label with Icon Inactive" args={{
+      ...ButtonData,
+      label: '',
+      type: ButtonType.LABEL,
+      iconPosition: IconPosition.RIGHT,
+      icon: Icon.EDIT_ACTION,
+      iconRotation: 0,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Label with Icon Active" args={{
+      ...ButtonData,
+      label: '',
+      type: ButtonType.LABEL,
+      iconPosition: IconPosition.RIGHT,
+      icon: Icon.EDIT_ACTION,
+      iconRotation: 0,
+      active: true
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Label Button - With Label Markers Variation
+
+<Canvas withToolbar isColumn>
+  <Story name="Label Packaging Marker" args={{
+      ...ButtonData,
+      label: 'Di',
+      type: ButtonType.LABEL,
+      labelPackaging: true
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Label Bio Marker" args={{
+      ...ButtonData,
+      label: 'Di',
+      type: ButtonType.LABEL,
+      labelBio: true
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Label Rest Marker" args={{
+      ...ButtonData,
+      label: 'Di',
+      type: ButtonType.LABEL,
+      labelRest: true
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Label Glass Marker" args={{
+      ...ButtonData,
+      label: 'Di',
+      type: ButtonType.LABEL,
+      labelGlass: true
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Label Special Marker" args={{
+      ...ButtonData,
+      label: 'Di',
+      type: ButtonType.LABEL,
+      labelSpecial: true
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Label Packaging & Bio Marker" args={{
+      ...ButtonData,
+      label: 'Di',
+      type: ButtonType.LABEL,
+      labelPackaging: true,
+      labelBio: true
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Label Packaging & Rest Marker" args={{
+      ...ButtonData,
+      label: 'Di',
+      type: ButtonType.LABEL,
+      labelPackaging: true,
+      labelRest: true
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Label Packaging & Glass Marker" args={{
+      ...ButtonData,
+      label: 'Di',
+      type: ButtonType.LABEL,
+      labelPackaging: true,
+      labelGlass: true
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Label Packaging & Special Marker" args={{
+      ...ButtonData,
+      label: 'Di',
+      type: ButtonType.LABEL,
+      labelPackaging: true,
+      labelSpecial: true
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+> Note: We have 5 types of markers, each marker represent garbage type. Those might look like a button but has no click functionality and thus no hover effect or active or disabled, They are used inside the tables to show day text and type of garbage.
+
+> Label Packaging Marker (O Tonne, LVP, LVP+): ``#F5DF35 - Yellow`` 
+
+> Label Bio Marker (Biotonne/ Grünabfall): ``#5F3C20 - Brown`` 
+
+> Label Rest Marker (Restabfall, AZV): ``#556074 - Grey Blue``
+
+> Label Glass Marker (PPK): ``#3379B1 - Blue``
+
+> Label Special Marker (Sonderfälle bei Tonnen wie WG, BG, etc.): ``#D95E39 - Red`` 
+
+<br/><br/>
+
+## Design
+
+[![XD-Buttons](https://img.shields.io/badge/-Buttons-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/aec6f38b-76a2-4b58-b371-63fac4c7e2fe-fb95/screen/080cca3a-1be5-4721-9ae4-5cd1d7281843/specs/)
+
+[![XD-Labels](https://img.shields.io/badge/-Labels-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/aec6f38b-76a2-4b58-b371-63fac4c7e2fe-fb95/screen/793c0a5d-7a9a-4f81-b9ce-0db16dd271f4/specs/)

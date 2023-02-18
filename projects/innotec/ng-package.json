@@ -1,0 +1,9 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/innotec",
+  "assets": ["./assets", "./src/lib/styles/**/*.*"],
+  "lib": {
+    "entryFile": "src/public-api.ts"
+  }
+}
+//https://stackoverflow.com/questions/57741052/include-assets-when-building-angular-library

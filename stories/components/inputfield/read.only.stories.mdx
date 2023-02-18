@@ -1,0 +1,62 @@
+import { Meta, Story, Canvas, Description } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+
+import {
+  PmInputfieldComponent
+} from '../../../projects/innotec/src/lib/components/pm-inputfield/pm-inputfield.component';
+import { PmIconComponent} from '../../../projects/innotec/src/lib/components/pm-icon/pm-icon.component';
+import {InputFieldData} from './data';
+
+<Meta title="Components/Inputfield/Inputfield-Read-Only" component={PmInputfieldComponent} argTypes={{}} decorators={[
+  //👇 Import nested components
+  moduleMetadata({
+    declarations: [PmIconComponent, PmInputfieldComponent]
+  })
+]}/>
+
+<Description of={PmIconComponent} />
+<Description markdown={`# Inputfield-Read-Only`}/>
+
+export const Template = args => ({
+  props: {
+    ...args,
+  },
+});
+
+
+This contains definitions for all **Read-Only-Fields**.
+
+## Read-Only-Fields - No Icon
+
+<Canvas withToolbar isColumn>
+  <Story name="Inputfield-Read-Only - No Icon" args={{
+    ...InputFieldData,
+    placeholderText: '5,25 Minuten',
+    noBorder: true
+  }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Inputfield-Read-Only" args={{
+    ...InputFieldData,
+    placeholderText: '5,25 Minuten',
+    noBorder: true
+  }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Inputfield-Read-Only - Left Icon" args={{
+    ...InputFieldData,
+    placeholderText: 'Max Mustermann',
+    noBorder: true,
+    isReadOnlyProfileCircleLeftIcon: true,
+    textUserCircle: 'MM',
+    withIcon: true
+  }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<br/><br/>
+
+## Design
+
+[![XD-Inputfields](https://img.shields.io/badge/-Inputfields-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/aec6f38b-76a2-4b58-b371-63fac4c7e2fe-fb95/screen/72c1fefd-68ba-4366-b329-2e8198330b0d/specs/)

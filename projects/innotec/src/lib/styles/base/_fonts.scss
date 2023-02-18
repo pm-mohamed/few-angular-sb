@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "Fira Sans Medium";
+    src: url('../fonts/FiraSans-Medium.ttf');
+    src: url('../fonts/FiraSans-Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Fira Sans Regular";
+    src: url('../fonts/FiraSans-Regular.ttf');
+    src: url('../fonts/FiraSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+//Icons
+@font-face {
+  font-family: 'innotec';
+  src: url('../fonts/innotec.eot');
+  src: url('../fonts/innotec.eot') format('embedded-opentype'),
+  url('../fonts/innotec.woff') format('woff'),
+  url('../fonts/innotec.ttf') format('truetype'),
+  url('../fonts/innotec.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

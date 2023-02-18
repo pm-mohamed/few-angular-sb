@@ -1,0 +1,141 @@
+@use "preferences" as p;
+@use "breakpoints" as b;
+
+@mixin mode($key) {
+  $modes: map-get(p.$preferences, "modes");
+  $mode: map-get($modes, $key);
+
+  @media (prefers-color-scheme: $mode) {
+    @content
+  }
+}
+
+@mixin mq($key) {
+  $size: map-get(b.$breakpoints, $key);
+
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin transition($property, $time) {
+  -webkit-transition: $property $time linear;
+  -moz-transition: $property $time linear;
+  -o-transition: $property $time linear;
+  -ms-transition: $property $time linear;
+  transition: $property $time linear;
+}
+
+@mixin transform($transforms) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -ms-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin user-select($user-select) {
+  -webkit-user-select: $user-select;
+  -moz-user-select: $user-select;
+  -ms-user-select: $user-select;
+  user-select: $user-select;
+}
+
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin padding-vertical($value) {
+  padding-top: $value;
+  padding-bottom: $value;
+}
+
+@mixin padding-horizontal($value) {
+  padding-right: $value;
+  padding-left: $value;
+}
+
+@mixin margin-vertical($value) {
+  margin-top: $value;
+  margin-bottom: $value;
+}
+
+@mixin margin-horizontal($value) {
+  margin-right: $value;
+  margin-left: $value;
+}
+
+@mixin font-mixin($font) {
+  font-family: var(--font-#{$font}-font-family);
+  font-size: var(--font-#{$font}-font-size-mobile);
+  line-height: var(--font-#{$font}-line-height-mobile);
+  font-weight: var(--font-#{$font}-font-weight);
+  color: var(--font-#{$font}-color);
+  background-color: var(--font-#{$font}-background);
+  letter-spacing: var(--font-#{$font}-letter-spacing);
+  text-transform: var(--font-#{$font}-text-transform);
+
+  :hover {
+    color: var(--font-#{$font}-color-hover);
+  }
+
+  @include mq(lg) {
+    font-size: var(--font-#{$font}-font-size-desktop);
+    line-height: var(--font-#{$font}-line-height-desktop);
+    letter-spacing: var(--font-#{$font}-letter-spacing-desktop);
+  }
+}
+
+@mixin icon($name, $type: before) {
+  &:#{$type} {
+    content: $name;
+
+    font-family: "innotec", serif;
+    font-style: normal;
+    speak: none;
+
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    padding: 0;
+    margin: 0;
+
+    @content
+  }
+}
+
+@mixin animateFromTop() {
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  @-webkit-keyframes animatetop {
+    from {
+      top: -300px;
+      opacity: 0
+    }
+    to {
+      top: 0;
+      opacity: 1
+    }
+  }
+
+  @keyframes animatetop {
+    from {
+      top: -300px;
+      opacity: 0
+    }
+    to {
+      top: 0;
+      opacity: 1
+    }
+  }
+}

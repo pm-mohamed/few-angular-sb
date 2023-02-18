@@ -1,0 +1,31 @@
+<div
+  class="grid" [ngClass]="navPartialDisplay ? 'grid--nav-partial-display' : 'grid--nav-full-display'"
+>
+    <div class="grid__mobile-header">
+      <pm-icon
+        class="grid__toggle"
+        [size]="24"
+        [rotate]="0"
+        [color]="IconColor.FOURTH"
+        [icon]="sideMenuExpanded ? Icon.CLOSE_ACTION : Icon.BURGER_MENU"
+        (click)="toggleSidebarMenu($event)"
+      ></pm-icon>
+      <div class="grid__text-container">
+        <span class="grid__text">{{headerText}}</span>
+      </div>
+    </div>
+    <pm-navigation
+        class="grid__navigation"
+        [class.grid--navigation-sidebar]="sideMenuExpanded"
+        [actions]="navigation"
+        (onEntryClicked)="clickNavigationEntry($event)"
+        (onLogoutClicked)="clickLogout($event)"
+        (onLogoClicked)="clickLogo($event)"
+        >
+    </pm-navigation>
+    <div class="grid__content">
+      <div class="grid__content-wrapper">
+        <ng-content></ng-content>
+      </div>
+    </div>
+</div>

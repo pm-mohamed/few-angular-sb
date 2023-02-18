@@ -1,0 +1,12 @@
+<div class="card"
+     [ngClass]="'card__' + type"
+     [class.card__draggable--open] = "type === ECardType.DRAGGABLE && !draggableConcluded"
+     [class.card__draggable--concluded] = "type === ECardType.DRAGGABLE && draggableConcluded"
+>
+  <span class="card__title">{{title}}</span>
+  <div class="card__text-wrapper">
+    <span>{{duration | getCardDuration}}</span>
+    <span>{{amount}} {{amountText}}</span>
+    <span>{{time | getCardTime}}</span>
+  </div>
+</div>

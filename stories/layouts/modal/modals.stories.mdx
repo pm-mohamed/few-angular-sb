@@ -1,0 +1,138 @@
+import {Canvas, Description, Meta, Story,} from "@storybook/addon-docs";
+import {moduleMetadata} from "@storybook/angular";
+import {PmModalComponent, ModalSize, ActionButtonConfig, hasHeaderCode, headerCode, preHeaderCode} from "../../../projects/innotec/src/lib/layouts/pm-modal/pm-modal.component";
+import {PmIconComponent} from "../../../projects/innotec/src/lib/components/pm-icon/pm-icon.component";
+import {ModalData} from "./data";
+import {PmButtonComponent} from "../../../projects/innotec/src/lib/components/pm-button/pm-button.component";
+import {action} from '@storybook/addon-actions';
+
+<Meta
+  title="Layouts/Modals/Modals"
+  component={PmModalComponent}
+  argTypes={{}}
+  parameters={{
+    controls: { disabled: false },
+  }}
+  decorators={[
+    //👇 Import nested components
+    moduleMetadata({
+      declarations: [PmButtonComponent, PmIconComponent],
+    }),
+  ]}
+/>
+
+<Description of={PmModalComponent}/>
+<Description markdown={`# Modals`}/>
+
+export const actionsData = {
+  onCloseClicked: action("on close clicked"),
+  onConfirmClicked: action("on confirm clicked:"),
+  onCancelClicked: action("on cancel clicked:"),
+};
+
+export const Template = (args) => ({
+  props: {
+    ...args,
+    onCloseClicked: actionsData.onCloseClicked,
+    onConfirmClicked: actionsData.onConfirmClicked,
+    onCancelClicked: actionsData.onCancelClicked,
+  },
+});
+
+This contains definitions for the **Modals**.
+
+## Small Size Modal with Green Action Button
+
+<Canvas withToolbar isColumn>
+  <Story
+    name="Small Modal With Green Action Button"
+    args={{
+      ...ModalData,
+      modalSize: ModalSize.SMALL,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Small Size Modal with Red Action Button
+
+<Canvas withToolbar isColumn>
+  <Story
+    name="Small Modal With Red Action Button"
+    args={{
+      ...ModalData,
+      modalSize: ModalSize.SMALL,
+      actionButtonConfig: ActionButtonConfig.DELETE
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Small Size Modal with Disabled Action Button
+
+<Canvas withToolbar isColumn>
+  <Story
+    name="Small Modal With Disabled Action Button"
+    args={{
+      ...ModalData,
+      modalSize: ModalSize.SMALL,
+      actionButtonConfig: ActionButtonConfig.DISABLED
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Small Size Modal with Header Code
+
+<Canvas withToolbar isColumn>
+  <Story
+    name="Small Modal With Header Code"
+    args={{
+      ...ModalData,
+      modalSize: ModalSize.SMALL,
+      hasHeaderCode: true,
+      headerCode: 'A1-DD5467',
+      preHeaderCode: 'ID:'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Medium Size Modal
+
+<Canvas withToolbar isColumn>
+  <Story
+    name="Medium Modal"
+    args={{
+      ...ModalData,
+      modalSize: ModalSize.MEDIUM,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Large Size Modal
+
+<Canvas withToolbar isColumn>
+  <Story
+    name="Large Modal"
+    args={{
+      ...ModalData,
+      modalSize: ModalSize.LARGE,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<br/>
+<br/>
+
+## Design
+
+[![XD-Modals](https://img.shields.io/badge/-Modals-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/aec6f38b-76a2-4b58-b371-63fac4c7e2fe-fb95/screen/14ee87ac-db9d-4c08-b67a-84e890354f8d/specs/)

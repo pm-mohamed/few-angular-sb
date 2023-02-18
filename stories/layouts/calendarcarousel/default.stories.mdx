@@ -1,0 +1,76 @@
+import { Meta, Story, Canvas, Description } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import {
+  CarouselType,
+  PmCalendarcarouselComponent
+} from '../../../projects/innotec/src/lib/layouts/pm-calendarcarousel/pm-calendarcarousel.component';
+import { PmButtonComponent } from '../../../projects/innotec/src/lib/components/pm-button/pm-button.component';
+import { PmIconComponent } from '../../../projects/innotec/src/lib/components/pm-icon/pm-icon.component';
+import { CalendarCarouselData } from './data';
+import * as PrimaryButtonStories from "../../components/button/primary.stories.mdx";
+import { GetIconSizePipe }
+  from "../../../projects/innotec/src/lib/components/pm-button/get-icon-size.pipe";
+import { GetIconColorPipe }
+  from "../../../projects/innotec/src/lib/components/pm-button/get-icon-color.pipe";
+
+
+
+<Meta title="Layouts/CalendarCarousel/Calendar-Carousel" component={PmCalendarcarouselComponent} argTypes={{}} decorators={[
+  //👇 Import nested components
+  moduleMetadata({
+    declarations: [
+      PmButtonComponent,
+      PmIconComponent,
+      GetIconSizePipe,
+      GetIconColorPipe
+    ]
+  })
+]}/>
+
+<Description of={PmCalendarcarouselComponent} />
+<Description markdown={`# Calendar Carousel`}/>
+
+export const Template = args => ({
+  props: {
+    ...args,
+    onClicked: PrimaryButtonStories.actionsData.onClicked
+  },
+});
+
+This contains definitions for the **Calendar Carousel**.
+
+## Calendar Carousel - Drag and Drop Table
+
+<Canvas withToolbar isColumn>
+  <Story name="Drag and Drop Table" args={{
+    ...CalendarCarouselData
+  }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Calendar Carousel - Flexible Columns Table
+<Canvas withToolbar isColumn>
+  <Story name="Flexible Columns Table" args={{
+    ...CalendarCarouselData,
+    type: CarouselType.FLEX
+  }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Calendar Carousel - Tours/Tasks Table
+<Canvas withToolbar isColumn>
+  <Story name="Tours/Tasks Table" args={{
+    ...CalendarCarouselData,
+    type: CarouselType.TOUR
+  }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<br/><br/>
+
+## Design
+
+[![XD-CalendarCarousel](https://img.shields.io/badge/-CalendarCarousel-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/0b9cafa4-9c26-4063-9b69-fd0eb7acaac1-5ecf/screen/15827920-959e-4a9a-9036-397b3e026eac/specs/)

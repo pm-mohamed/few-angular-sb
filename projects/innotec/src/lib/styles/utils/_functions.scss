@@ -1,0 +1,5 @@
+$baseFontSize: 16;
+
+@function rem($pixels, $context: $baseFontSize) {
+  @return calc(#{$pixels}/ #{$context} * 1rem);
+}

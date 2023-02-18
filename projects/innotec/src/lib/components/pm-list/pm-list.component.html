@@ -1,0 +1,9 @@
+<div class="list">
+    <div class="list__text-item-wrapper">
+        <ng-container *ngFor="let listItem of primaryTypeData">
+            <div class="list__text-wrapper" (click)="onListItemClicked(listItem)">
+                <span class="list__text">{{listItem.text}}</span>
+            </div>
+        </ng-container>
+    </div>
+</div>

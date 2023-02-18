@@ -1,0 +1,21 @@
+@use '../utils/colors' as c;
+@use '../utils/mixins' as m;
+@use '../utils/fonts' as f;
+
+:root {
+  @each $mode, $modes in c.$colors {
+    @include m.mode($mode) {
+      @each $type, $types in $modes {
+        @each $property, $color in $types {
+          --clr-#{$type}-#{$property}: #{$color};
+        }
+      }
+    }
+  }
+
+  @each $font, $fontValues in f.$fonts {
+    @each $fontProperty, $fontValue in $fontValues {
+      --font-#{$font}-#{$fontProperty}: #{$fontValue};
+    }
+  }
+}

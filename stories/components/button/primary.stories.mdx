@@ -1,0 +1,145 @@
+import { Meta, Story, Canvas, Description } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import {
+  PmButtonComponent,
+  IconSize,
+  ButtonType,
+  IconPosition
+} from '../../../projects/innotec/src/lib/components/pm-button/pm-button.component';
+import { PmIconComponent, Icon} from '../../../projects/innotec/src/lib/components/pm-icon/pm-icon.component';
+import { action } from '@storybook/addon-actions';
+import { ButtonData } from './data';
+import { GetIconSizePipe } from "../../../projects/innotec/src/lib/components/pm-button/get-icon-size.pipe.ts";
+import { GetIconColorPipe } from "../../../projects/innotec/src/lib/components/pm-button/get-icon-color.pipe.ts";
+
+<Meta title="Components/Button/Button-Primary" component={PmButtonComponent} argTypes={{}} decorators={[
+  //👇 Import nested components
+   moduleMetadata({
+    declarations: [PmIconComponent, GetIconSizePipe, GetIconColorPipe]
+   })
+]}/>
+
+<Description of={PmIconComponent} />
+<Description markdown={`# Buttons`}/>
+
+export const actionsData = {
+  onClicked: action('clicked on button:'),
+};
+export const Template = args => ({
+  props: {
+    ...args,
+    onClicked: actionsData.onClicked
+  },
+});
+
+This contains definitions for all **Primary-Buttons**.
+
+## Primary Button - No Icon
+
+<Canvas withToolbar isColumn>
+  <Story name="Primary" args={{
+      ...ButtonData,
+      label: 'Neue Aufgabe',
+      type: ButtonType.PRIMARY,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Primary Active" args={{
+      ...ButtonData,
+      label: 'Neue Aufgabe',
+      type: ButtonType.PRIMARY,
+      active: true,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Primary Disabled" args={{
+      ...ButtonData,
+      label: 'Neue Aufgabe',
+      type: ButtonType.PRIMARY,
+      disabled: true,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Primary Button - Left Add Action Icon Variation
+
+<Canvas withToolbar isColumn>
+  <Story name="Primary Left Add Action Icon" args={{
+      ...ButtonData,
+      label: 'Neue Aufgabe',
+      type: ButtonType.PRIMARY,
+      iconPosition: IconPosition.LEFT,
+      icon: Icon.ADD_ACTION,
+      iconRotation: 0,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Primary Active Left Add Action Icon" args={{
+      ...ButtonData,
+      label: 'Neue Aufgabe',
+      type: ButtonType.PRIMARY,
+      active: true,
+      iconPosition: IconPosition.LEFT,
+      icon: Icon.ADD_ACTION,
+      iconRotation: 0,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Primary Disabled Left Add Action Icon" args={{
+      ...ButtonData,
+      label: 'Neue Aufgabe',
+      type: ButtonType.PRIMARY,
+      disabled: true,
+      iconPosition: IconPosition.LEFT,
+      icon: Icon.ADD_ACTION,
+      iconRotation: 0,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Primary Button - Right Add Action Icon Variation
+
+<Canvas withToolbar isColumn>
+  <Story name="Primary Right Add Action Icon" args={{
+      ...ButtonData,
+      label: 'Neue Aufgabe',
+      type: ButtonType.PRIMARY,
+      iconPosition: IconPosition.RIGHT,
+      icon: Icon.ADD_ACTION,
+      iconRotation: 0,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Primary Active Right Add Action Icon" args={{
+      ...ButtonData,
+      label: 'Neue Aufgabe',
+      type: ButtonType.PRIMARY,
+      active: true,
+      iconPosition: IconPosition.RIGHT,
+      icon: Icon.ADD_ACTION,
+      iconRotation: 0,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Primary Disabled Right Add Action Icon" args={{
+      ...ButtonData,
+      label: 'Neue Aufgabe',
+      type: ButtonType.PRIMARY,
+      disabled: true,
+      iconPosition: IconPosition.RIGHT,
+      icon: Icon.ADD_ACTION,
+      iconRotation: 0,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+> Note: ``Disabled``, ``Hover`` and ``Active`` also work by defining the state ``:disabled``, ``:hover`` and ``:active`` of the component.
+
+<br/><br/>
+
+## Design
+
+[![XD-Buttons](https://img.shields.io/badge/-Buttons-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/aec6f38b-76a2-4b58-b371-63fac4c7e2fe-fb95/screen/080cca3a-1be5-4721-9ae4-5cd1d7281843/specs/)

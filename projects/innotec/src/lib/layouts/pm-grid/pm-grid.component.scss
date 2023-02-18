@@ -1,0 +1,162 @@
+@use '../../styles/utils/functions' as f;
+@use '../../styles/utils/mixins' as m;
+
+.grid {
+  --grid-rows: #{f.rem(72)} #{f.rem(101)} auto 0;
+  --grid-columns: 1fr;
+  --content-vertical-margin: #{f.rem(16)};
+  --content-horizontal-margin: #{f.rem(16)};
+  --content-horizontal-desktop-left-margin: #{f.rem(30)};
+  --content-horizontal-desktop-right-margin: #{f.rem(16)};
+  --content-bottom-margin: #{f.rem(70)};
+  --content-bottom-margin-desktop: #{f.rem(35)};
+  --content-max-width: #{f.rem(704)};
+  --content-max-height: calc(100vh - 243px); //grid__mobile-header + grid__header_container + own margin
+  --content-max-height-tablet: calc(100vh - 240px); //grid__mobile-header + grid__header_container + own margin
+  --content-max-height-desktop: calc(100vh - 142px); //grid__mobile-header + grid__header_container + own margin
+  --content-max-width-outer: calc(100vw - 32px);
+  --navigation-desktop-height: calc(100vh - 32px);
+  --navigation-desktop-display: block;
+  --mobile-header-display: grid;
+  --mobile-navigation-position: absolute;
+  --mobile-header-padding: 0 #{f.rem(16)};
+
+  background-color: var(--clr-secondary-800);
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: var(--grid-columns);
+  grid-template-rows: var(--grid-rows);
+  grid-template-areas: "mobileHeader"
+                       "header"
+                       "content"
+                       "navi";
+
+  @include m.mq(md) {
+    --grid-rows: #{f.rem(72)} #{f.rem(138)} auto 0;
+    --content-horizontal-margin: #{f.rem(32)};
+  }
+
+  @include m.mq(lg) {
+    --grid-rows: #{f.rem(72)} auto 0;
+    --grid-columns: #{f.rem(264)} 1fr;
+    --content-max-width: #{f.rem(1130)};
+    grid-template-areas: "navi header"
+                       "navi content"
+                       "mobileHeader mobileHeader";
+    padding: var(--grid-padding);
+    padding-bottom: 0;
+  }
+
+  &--nav-partial-display {
+    @include m.mq(lg) {
+      --grid-columns: #{f.rem(96)} 1fr;
+    }
+  }
+
+  &__mobile-header {
+    background-color: var(--clr-neutral-1300);
+    display: var(--mobile-header-display);
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas: "logo space menu";
+    align-items: center;
+    padding-left: f.rem(12);
+    border-bottom:  f.rem(1) solid var(--clr-neutral-700);
+    padding: var(--mobile-header-padding);
+
+    @include m.mq(md) {
+      --mobile-header-padding: 0 #{f.rem(24)};
+    }
+  }
+
+  &__logo {
+    grid-area: logo;
+    width: f.rem(52);
+    height: f.rem(52);
+  }
+
+  &__toggle {
+    grid-area: menu;
+
+    @include m.mq(lg) {
+      display: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__text-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__text {
+    @include m.font-mixin(h2);
+  }
+
+  &__navigation {
+    grid-area: navi;
+    background-color: var(--clr-primary-900);
+    border-radius: f.rem(4);
+    overflow: hidden;
+    height: var(--navigation-desktop-height);
+  }
+
+  &--navigation-sidebar {
+    position: var(--mobile-navigation-position);
+    height: 100%;
+    z-index: 2;
+    margin-bottom: 0;
+
+    @include m.mq(lg) {
+      position: relative;
+      height: auto;
+    }
+  }
+
+  &__header_container {
+    grid-area: header;
+    overflow: hidden;
+    margin: f.rem(5) var(--content-horizontal-margin) 0 var(--content-horizontal-margin);
+
+    @include m.mq(md) {
+      margin-top: f.rem(6);
+      margin-bottom: 0;
+    }
+
+    @include m.mq(lg) {
+      margin-top: 0;
+      margin-right: f.rem(16);
+    }
+  }
+
+  &__header {
+    display: block;
+
+    @include m.mq(md) {
+      padding: f.rem(3) f.rem(8) f.rem(3) 0;
+      margin: auto;
+    }
+  }
+
+  &__content {
+    grid-area: content;
+    margin: 0 var(--content-horizontal-margin) var(--content-vertical-margin) var(--content-horizontal-margin);
+    border-radius: f.rem(4);
+    max-width: var(--content-max-width-outer);
+    overflow-x: hidden;
+
+    @include m.mq(lg) {
+      margin-right: var(--content-horizontal-desktop-right-margin);
+    }
+  }
+
+  &__content-wrapper {
+    background-color: var(--clr-primary-900);
+    border-radius: f.rem(4);
+  }
+}

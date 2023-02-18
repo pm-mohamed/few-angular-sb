@@ -1,0 +1,90 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Styling Guidlines" />
+
+
+# Styling Guidelines
+
+<br></br>
+
+## Colors
+
+Please check the color palette if your color exist or not, if not please add the new color (light and dark theme) to `storybook/projects/innotec/src/lib/styles/utils/_colors.scss`, Then add the new color to the color story `storybook/stories/utilities/color/color.stories.mdx`.
+
+> We can use the color in our scss as follows:
+
+```
+  var(--clr-neutral-1300);
+
+```
+
+
+## Fonts
+
+Please check Typography story if the font exists or not, if not please add the new font styles to `storybook/projects/innotec/src/lib/styles/utils/_fonts.scss`, Then add the new font to the typography story `storybook/stories/components/text/text.stories.mdx`.
+
+> Any variation of font size 16px can be added to ``Copy-M``
+
+> Any variation of font size 14px can be added to ``Copy-S`` 
+
+> Any variation of font size 12px can be added to ``Copy-XS``
+
+> We can use the font mixin as follows:
+
+```
+@include m.font-mixin(copy-m-medium);
+
+```
+
+## Icons
+
+Please check the Iconography story if your icon exists or not, if not download the svg from the XD file, add it to [Google-Drive](https://drive.google.com/drive/folders/172EtkfmV3fqKG6HOCxkXTUqhmT9B8wH8), then go to [Icomoon](https://icomoon.io/app/#/select/font) and export all icons to icon font, then replace it with the old innotec fonts inside `storybook/projects/innotec/src/lib/styles/fonts/innotec.svg`.
+
+## Custom Properties
+
+Whenever you have css rule that have different value on different modifier or state we use custom property for it, it is also useful to avoid nesting selectors.
+
+```
+.button {
+  --button-bg-color: transparent;
+
+  background-color: var(--button-bg-color);
+
+  &--primary {
+    --button-bg-color: var(--clr-neutral-1300);
+  }
+
+  &--secondary {
+    --button-bg-color: var(--clr-neutral-1000);
+  }
+}
+
+```
+
+## BEM
+
+We use BEM (Block. Element. Modifier) as a naming methodology.
+
+```
+.button {
+
+  &__text {
+    
+  }
+
+  &__icon {
+    
+  }
+
+  &--primary {
+    
+  }
+
+  &--secondary {
+
+  }
+}
+
+```
+
+<hr />

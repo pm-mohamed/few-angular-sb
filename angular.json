@@ -1,0 +1,63 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+      "innotec": {
+        "projectType": "library",
+        "root": "projects/innotec",
+        "sourceRoot": "projects/innotec",
+        "prefix": "lib",
+        "architect": {
+          "build": {
+            "builder": "@angular-devkit/build-angular:ng-packagr",
+            "options": {
+              "project": "projects/innotec/ng-package.json"
+            },
+            "configurations": {
+              "production": {
+                "tsConfig": "projects/innotec/tsconfig.lib.prod.json"
+              },
+              "development": {
+                "tsConfig": "projects/innotec/tsconfig.lib.json"
+              }
+            },
+            "defaultConfiguration": "production"
+          },
+          "test": {
+            "builder": "@angular-devkit/build-angular:karma",
+            "options": {
+              "main": "projects/innotec/src/test.ts",
+              "tsConfig": "projects/innotec/tsconfig.spec.json",
+              "karmaConfig": "projects/innotec/karma.conf.js"
+            }
+          }
+        }
+      },
+      "storybook": {
+        "projectType": "application",
+        "root": "stories",
+        "sourceRoot": "stories",
+        "architect": {
+          "build": {
+            "options": {
+              "tsConfig": "tsconfig.json",
+              "styles": [
+                "projects/innotec/src/lib/styles.scss"
+              ],
+              "scripts": []
+            }
+          }
+        }
+      }
+    },
+    "defaultProject": "innotec",
+    "schematics": {
+      "@schematics/angular:component": {
+      }
+    },
+    "cli": {
+      "analytics": false
+    }
+  }
+  
