@@ -1,6 +1,6 @@
 import { create } from '@storybook/theming'
 
-const toolkitTitle = `<img src="https://www.innotec-abfallmanagement.de/wp-content/uploads/Innotec_Logos_Abfall.png" width="75px" alt="Innotec Storybook"/> <div style="padding-left:0.375rem; font-size: 1rem;"></div>`
+const toolkitTitle = `<img src="https://cdn.icon-icons.com/icons2/2389/PNG/512/storybook_logo_icon_144839.png" width="30px" alt="Innotec Storybook"/> <div style="padding-left:0.375rem; font-size: 1rem;"></div>`
 
 export default create({
   base: 'light',
