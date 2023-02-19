@@ -14,7 +14,7 @@ Please check the color palette if your color exist or not, if not please add the
 > We can use the color in our scss as follows:
 
 ```
-  var(--clr-neutral-1300);
+  var(--clr-neutral-100);
 
 ```
 
@@ -23,16 +23,10 @@ Please check the color palette if your color exist or not, if not please add the
 
 Please check Typography story if the font exists or not, if not please add the new font styles to `storybook/projects/fews/src/lib/styles/utils/_fonts.scss`, Then add the new font to the typography story `storybook/stories/components/text/text.stories.mdx`.
 
-> Any variation of font size 16px can be added to ``Copy-M``
-
-> Any variation of font size 14px can be added to ``Copy-S`` 
-
-> Any variation of font size 12px can be added to ``Copy-XS``
-
 > We can use the font mixin as follows:
 
 ```
-@include m.font-mixin(copy-m-medium);
+@include m.font-mixin(copy-s-medium-primary);
 
 ```
 
@@ -48,11 +42,11 @@ Whenever you have css rule that have different value on different modifier or st
   background-color: var(--button-bg-color);
 
   &--primary {
-    --button-bg-color: var(--clr-neutral-1300);
+    --button-bg-color: var(--clr-neutral-100);
   }
 
   &--secondary {
-    --button-bg-color: var(--clr-neutral-1000);
+    --button-bg-color: var(--clr-neutral-300);
   }
 }
 
