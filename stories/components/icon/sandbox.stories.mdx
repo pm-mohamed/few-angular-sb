@@ -1,0 +1,59 @@
+import { Meta, Story, ArgsTable, Description } from '@storybook/addon-docs';
+import { PmIconComponent, IconColor, Icon } from '../../../projects/fews/src/lib/components/pm-icon/pm-icon.component.ts';
+import { IconData } from './data'
+
+<Meta title="Components/Iconography/Iconography-Sandbox" component={PmIconComponent} argTypes={{
+  color: {
+    description: 'The color of the icon',
+    table: {
+      category: 'Visual',
+    },
+  },
+  size: {
+    description: 'The size of the icon',
+    table: {
+      category: 'Configuration',
+    },
+  },
+  rotate: {
+    description: 'Rotates the icon',
+    table: {
+      category: 'Configuration',
+    },
+  },
+  icon: {
+    description: 'The icon',
+    table: {
+      category: 'Configuration',
+    },
+  },
+}} parameters={{
+  controls: { disabled: true },
+  chromatic: { disableSnapshot: true },
+}}/>
+
+<Description of={PmIconComponent} />
+<Description markdown={`# Iconography`}/>
+
+export const Template = (args) => <PmIconComponent {...args} />
+
+
+
+This contains the **Icon-Sandbox**
+
+## Sandbox
+
+<Story name="Sandbox" args={{
+    ...IconData
+  }}>
+  {Template.bind({})}
+</Story>
+
+
+<ArgsTable story="Sandbox" />
+
+<br/><br/>
+
+## Design
+
+[![XD-Iconography](https://img.shields.io/badge/-Iconography-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/3ff4c180-5eee-4b0f-941c-2de05a13ccd2-6aa7/specs/)

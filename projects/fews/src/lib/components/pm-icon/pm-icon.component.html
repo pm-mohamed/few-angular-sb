@@ -1,0 +1,10 @@
+<div class="icon"
+        [class.icon--primary]="color===EIconColor.PRIMARY"
+
+        [ngClass]="icon !== null ? 'icon--' + icon : ''"
+
+        [style.--icon-size.px]=size
+        [style.--icon-rotate.deg]=rotate
+        [style.--icon-weight]=weight
+    >
+</div>

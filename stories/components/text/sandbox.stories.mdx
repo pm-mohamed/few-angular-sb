@@ -1,0 +1,49 @@
+import { Meta, Story, ArgsTable, Description } from '@storybook/addon-docs';
+import { PmTextComponent } from '../../../projects/fews/src/lib/components/pm-text/pm-text.component';
+
+<Meta title="Components/Typography/Sandbox" component={PmTextComponent} argTypes={{
+    type: {
+      description: 'The type/tag of the Text',
+      table: {
+        category: 'Type',
+      },
+    },
+    text: {
+      description: 'Defines the text',
+      table: {
+        category: 'Text',
+      },
+    },
+}} parameters={{
+  controls: { disabled: true },
+  chromatic: { disableSnapshot: true },
+}} />
+
+<Description of={PmTextComponent} />
+<Description markdown={`# Typography`}/>
+
+export const Template = (args) => <PmTextComponent {...args} />
+
+
+
+This contains the **Text-Sandbox**.
+
+<br/><br/>
+
+## Sandbox
+
+<Story name="Sandbox" args={{
+    text: 'Lorem Ipsum',
+    type: 'h4'
+  }}>
+  {Template.bind({})}
+</Story>
+
+
+<ArgsTable story="Sandbox" />
+
+<br/><br/>
+
+## Design
+
+[![XD-Typography](https://img.shields.io/badge/-Typography-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/3ff4c180-5eee-4b0f-941c-2de05a13ccd2-6aa7/specs/)

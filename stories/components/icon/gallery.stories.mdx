@@ -1,0 +1,113 @@
+import { Meta, Story, Canvas, IconGallery, IconItem, Description } from '@storybook/addon-docs';
+import { PmIconComponent, IconColor, Icon } from '../../../projects/fews/src/lib/components/pm-icon/pm-icon.component.ts';
+import { IconData } from './data'
+
+<Meta title="Components/Iconography/Gallery" component={PmIconComponent} argTypes={{
+}} parameters={{
+  controls: { disabled: true },
+  chromatic: { disableSnapshot: true },
+}}/>
+
+<Description of={PmIconComponent} />
+<Description markdown={`# Iconography`}/>
+
+export const Template = (args) => <PmIconComponent {...args} />
+
+
+
+This contains definitions for all **Icons**
+
+## Icons
+
+<Canvas withToolbar>
+  <Story name="Default FAVORITE" args={{
+      ...IconData,
+      icon: Icon.FAVORITE,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Default SORT" args={{
+      ...IconData,
+      icon: Icon.SORT,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Default SEARCH" args={{
+      ...IconData,
+      icon: Icon.SEARCH,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Default CART" args={{
+      ...IconData,
+      icon: Icon.CART,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Default STAR_FILLED" args={{
+      ...IconData,
+      icon: Icon.START_FILLED,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Default STAR_EMPTY" args={{
+      ...IconData,
+      icon: Icon.STAR_EMPTY,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Default REFRESH" args={{
+      ...IconData,
+      icon: Icon.REFRESH,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Default FILTER" args={{
+      ...IconData,
+      icon: Icon.FILTER,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<IconGallery>
+  <IconItem name="favorite">
+    <Story name="Default FAVORITE">
+    </Story>
+  </IconItem>
+  <IconItem name="sort">
+    <Story name="Default SORT">
+    </Story>
+  </IconItem>
+  <IconItem name="search">
+    <Story name="Default SEARCH">
+    </Story>
+  </IconItem>
+  <IconItem name="cart">
+    <Story name="Default CART">
+    </Story>
+  </IconItem>
+  <IconItem name="star_filled">
+    <Story name="Default STAR_FILLED">
+    </Story>
+  </IconItem>
+  <IconItem name="star_empty">
+    <Story name="Default STAR_EMPTY">
+    </Story>
+  </IconItem>
+  <IconItem name="refresh">
+    <Story name="Default REFRESH">
+    </Story>
+  </IconItem>
+  <IconItem name="filter">
+    <Story name="Default FILTER">
+    </Story>
+  </IconItem>
+</IconGallery>
+
+
+<br/><br/>
+
+## Design
+
+[![XD-Iconography](https://img.shields.io/badge/-Iconography-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/3ff4c180-5eee-4b0f-941c-2de05a13ccd2-6aa7/specs/)
