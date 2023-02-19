@@ -1,15 +1,31 @@
 @font-face {
-    font-family: "Fira Sans Medium";
-    src: url('../fonts/FiraSans-Medium.ttf');
-    src: url('../fonts/FiraSans-Medium.ttf') format('truetype');
+  font-family: "Noto Sans Bold";
+  src: url('../fonts/NotoSans-Bold.ttf');
+  src: url('../fonts/NotoSans-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: "Noto Sans Medium";
+    src: url('../fonts/NotoSans-Medium.ttf');
+    src: url('../fonts/NotoSans-Medium.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
-    font-family: "Fira Sans Regular";
-    src: url('../fonts/FiraSans-Regular.ttf');
-    src: url('../fonts/FiraSans-Regular.ttf') format('truetype');
+    font-family: "Noto Sans Regular";
+    src: url('../fonts/NotoSans-Regular.ttf');
+    src: url('../fonts/NotoSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Noto Sans Light";
+    src: url('../fonts/NotoSans-Light.ttf');
+    src: url('../fonts/NotoSans-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }

@@ -1,0 +1,31 @@
+import { Meta, Story, Canvas, Description } from '@storybook/addon-docs';
+import { PmTextComponent } from '../../../projects/fews/src/lib/components/pm-text/pm-text.component.ts';
+
+<Meta title="Components/Typography/Headers" component={PmTextComponent} argTypes={{}} parameters={{
+  controls: { disabled: true },
+}} />
+
+<Description of={PmTextComponent} />
+<Description markdown={`# Typography`}/>
+
+export const Template = (args) => <PmTextComponent {...args} />
+
+
+
+This contains definitions for all **Headers**.
+
+<br/><br/>
+
+## Headers
+
+<Canvas withToolbar isColumn>
+  <Story name="H4" args={{
+      text: 'H4 - Noto Sans Bold - Fontsize : 36px - Color : #222222',
+      type: 'h4',
+    }}/>
+</Canvas>
+
+
+## Design
+
+[![XD-Typography](https://img.shields.io/badge/-Typography-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/3ff4c180-5eee-4b0f-941c-2de05a13ccd2-6aa7/specs/)
