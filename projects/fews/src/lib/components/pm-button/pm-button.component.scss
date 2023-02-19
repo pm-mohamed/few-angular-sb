@@ -1,0 +1,80 @@
+@use '../../styles/utils/functions' as f;
+@use '../../styles/utils/mixins' as m;
+
+.button {
+  $block: &;
+  --button-bg-color: transparent;
+  --button-bg-hover-color: transparent;
+  --button-bg-active-color: transparent;
+  --button-bg-disabled-color: transparent;
+  --button-hover-color: var(--clr-secondary-300);
+  --button-border-color: transparent;
+  --button-border-disabled-color: transparent;
+  --button-height: #{f.rem(20)};
+  --button-padding: #{f.rem(15)} #{f.rem(24)} ;
+  --button-icon-height-before: #{f.rem(22)};
+  --button-icon-margin-horizontal: #{f.rem(5)};
+  --button-icon-margin-top: #{f.rem(1)};
+  --button-text-decoration: none;
+  --button-min-width: fit-content;
+
+  display: flex;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  background-color: var(--button-bg-color);
+  cursor: pointer;
+  padding: var(--button-padding);
+  border: #{f.rem(2)} solid var(--button-border-color);
+  border-radius: f.rem(4);
+  min-width: var(--button-min-width);
+  height: var(--button-height);
+  text-align: initial;
+
+  &__before {
+    margin: auto;
+    margin-right: var(--button-icon-margin-horizontal);
+    margin-top: var(--button-icon-margin-top);
+    height: var(--button-icon-height-before);
+  }
+
+  &__text {
+    @include m.font-mixin(copy-s-medium-primary);
+    margin: 0 f.rem(4);
+    text-decoration: var(--button-text-decoration);
+    white-space: nowrap;
+  }
+
+  &--primary {
+    --button-hover-color: var(--clr-primary-100);
+    --button-bg-color: var(--clr-neutral-500);
+    --button-bg-hover-color: var(--clr-primary-900);
+    --button-bg-active-color: var(--clr-primary-100);
+    --button-bg-disabled-color: var(--clr-neutral-700);
+    --button-height: #{f.rem(43)};
+    --button-icon-margin-horizontal: #{f.rem(0)};
+    --button-icon-margin-top: #{f.rem(0)};
+    --button-min-width: #{f.rem(53)};
+    --button-padding: #{f.rem(11)} #{f.rem(16)};
+    --button-border-color: var(--clr-neutral-500);
+  }
+
+  &:hover, &--hover {
+    background-color: var(--button-bg-hover-color);
+  }
+
+  &:active, &--active {
+    background-color: var(--button-bg-active-color);
+  }
+
+
+  &--disabled, &:disabled {
+    pointer-events: none;
+    background-color: var(--button-bg-disabled-color);
+    border: #{f.rem(1)} solid var(--button-border-disabled-color);
+
+    #{$block}__text {
+      color: var(--clr-neutral-500);
+    }
+  }
+}

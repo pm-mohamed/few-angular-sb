@@ -30,6 +30,10 @@
     --icon-color: var(--clr-neutral-300);
   }
 
+  &--disabled {
+    --icon-color: var(--clr-neutral-500);
+  }
+
 
   @each $icon, $iconValue in i.$icons {
     &--#{$icon} {

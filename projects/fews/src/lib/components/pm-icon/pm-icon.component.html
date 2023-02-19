@@ -1,5 +1,6 @@
 <div class="icon"
         [class.icon--primary]="color===EIconColor.PRIMARY"
+        [class.icon--disabled]="color===EIconColor.DISABLED"
 
         [ngClass]="icon !== null ? 'icon--' + icon : ''"
 

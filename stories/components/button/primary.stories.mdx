@@ -1,0 +1,114 @@
+import { Meta, Story, Canvas, Description } from '@storybook/addon-docs';
+import { moduleMetadata } from '@storybook/angular';
+import {
+  PmButtonComponent,
+  IconSize,
+  ButtonType,
+  IconPosition
+} from '../../../projects/fews/src/lib/components/pm-button/pm-button.component';
+import { PmIconComponent, Icon} from '../../../projects/fews/src/lib/components/pm-icon/pm-icon.component';
+import { action } from '@storybook/addon-actions';
+import { ButtonData } from './data';
+import { GetIconSizePipe } from "../../../projects/fews/src/lib/components/pm-button/get-icon-size.pipe.ts";
+import { GetIconColorPipe } from "../../../projects/fews/src/lib/components/pm-button/get-icon-color.pipe.ts";
+
+<Meta title="Components/Button/Button-Primary" component={PmButtonComponent} argTypes={{}} decorators={[
+  //👇 Import nested components
+   moduleMetadata({
+    declarations: [PmIconComponent, GetIconSizePipe, GetIconColorPipe]
+   })
+]}/>
+
+<Description of={PmIconComponent} />
+<Description markdown={`# Buttons`}/>
+
+export const actionsData = {
+  onClicked: action('clicked on button:'),
+};
+export const Template = args => ({
+  props: {
+    ...args,
+    onClicked: actionsData.onClicked
+  },
+});
+
+This contains definitions for all **Primary-Buttons**.
+
+## Primary Button - with Text Only
+
+<Canvas withToolbar isColumn>
+  <Story name="Primary Text Only" args={{
+      ...ButtonData,
+      label: 'Neue Aufgabe',
+      type: ButtonType.PRIMARY,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Primary Text Only Disabled" args={{
+      ...ButtonData,
+      label: 'Neue Aufgabe',
+      type: ButtonType.PRIMARY,
+      disabled: true,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Primary Button - Text with Left Filter Icon Variation
+
+<Canvas withToolbar isColumn>
+  <Story name="Primary Text with Left Filter Icon" args={{
+      ...ButtonData,
+      label: 'Neue Aufgabe',
+      type: ButtonType.PRIMARY,
+      iconPosition: IconPosition.LEFT,
+      icon: Icon.FILTER,
+      iconRotation: 0,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Primary Text with Left Filter Icon Disabled" args={{
+      ...ButtonData,
+      label: 'Neue Aufgabe',
+      type: ButtonType.PRIMARY,
+      disabled: true,
+      iconPosition: IconPosition.LEFT,
+      icon: Icon.FILTER,
+      iconRotation: 0,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Primary Button - with Favorite Icon without Text
+
+<Canvas withToolbar isColumn>
+  <Story name="Primary with Favorite Icon Without Text" args={{
+      ...ButtonData,
+      label: false,
+      type: ButtonType.PRIMARY,
+      iconPosition: IconPosition.LEFT,
+      icon: Icon.FAVORITE,
+      iconRotation: 0,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Primary with Favorite Icon Without Text Disabled" args={{
+      ...ButtonData,
+      label: false,
+      type: ButtonType.PRIMARY,
+      disabled: true,
+      iconPosition: IconPosition.LEFT,
+      icon: Icon.FAVORITE,
+      iconRotation: 0,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+
+<br/><br/>
+
+## Design
+
+[![XD-Buttons](https://img.shields.io/badge/-Buttons-%235c5c5c?logo=adobexd&labelColor=450034)](https://xd.adobe.com/view/3ff4c180-5eee-4b0f-941c-2de05a13ccd2-6aa7/specs/)

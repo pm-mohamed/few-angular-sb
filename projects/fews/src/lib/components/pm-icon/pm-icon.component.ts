@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export enum IconColor {
   PRIMARY = 'primary',
+  DISABLED = 'disabled'
 }
 
 export enum Icon {

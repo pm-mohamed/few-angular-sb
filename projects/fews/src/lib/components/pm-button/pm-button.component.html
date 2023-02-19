@@ -1,0 +1,19 @@
+<button class="button"
+     [class.button--primary]="type === EButtonType.PRIMARY"
+     [class.button--secondary]="type === EButtonType.SECONDARY"
+     [class.button--small]="iconSize === EIconSize.SMALL"
+     [class.button--disabled]="disabled"
+
+     (click)="clickOnButton()"
+    >
+    <pm-icon
+        *ngIf="icon && iconPosition === EIconPosition.LEFT"
+        class="button__before"
+        [icon]="icon"
+        [size]="{buttonType: type, iconSize: iconSize } | getIconSize"
+        [color]="{buttonType: type, disabled: disabled, active: active } | getIconColor"
+        [rotate]="iconRotation"
+    ></pm-icon>
+
+    <span *ngIf="label" class="button__text">{{label}}</span>
+</button>
