@@ -8,8 +8,8 @@
       "strict": true,
       "noImplicitOverride": true,
       "paths": {
-        "innotec": [
-          "projects/innotec/src/public-api"
+        "fews": [
+          "projects/fews/src/public-api"
         ]
       },
       "noPropertyAccessFromIndexSignature": true,

@@ -1,5 +1,5 @@
 {
-    "extends": "../projects/innotec/tsconfig.lib.json",
+    "extends": "../projects/fews/tsconfig.lib.json",
     "compilerOptions": {
       "types": [
         "node"

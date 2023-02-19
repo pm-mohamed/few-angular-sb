@@ -1,6 +1,6 @@
 import { addons } from '@storybook/addons'
-import innotecTheme from './innotecTheme'
+import fewsTheme from './fewsTheme'
 
 addons.setConfig({
-  theme: innotecTheme,
+  theme: fewsTheme,
 })
