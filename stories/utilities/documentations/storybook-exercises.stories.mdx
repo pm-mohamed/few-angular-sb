@@ -9,9 +9,9 @@ import { Meta } from '@storybook/addon-docs';
 
 ## 1-Typography
 
-Update `text.stories.mdx` with the various font variations from the design.
+> Update `text.stories.mdx` with the various font variations from the design.
 
-First you need to define styling rules inside `src/lib/styles/utils/_fonts.scss`, then Update `text.stories.mdx` with the correct values and at last update the enum inside `src/lib/components/pm-text/pm-text.component.ts` with the new values.
+> First you need to define styling rules inside `src/lib/styles/utils/_fonts.scss`, then Update `text.stories.mdx` with the correct values and at last update the enum inside `src/lib/components/pm-text/pm-text.component.ts` with the new values.
 
 > Any font of size 19px can be added as copy-l, 16px as copy-m, 14px as copy s and 12px as copy-xs.
 
@@ -20,3 +20,14 @@ First you need to define styling rules inside `src/lib/styles/utils/_fonts.scss`
 > Any color variation can be added as primary/secondary e.g: copy-l-regular-primary/copy-l-regular-secondary
 
 > Each font size variation (copy-l/copy-m/copy-s)should have separate canvas and title that contain all other variations as stories (medium/regular/primary/secondary)
+
+
+## 2-Colors
+
+> Use [Coolors.co](https://coolors.co/db995a-654236-d6d4a0-da7635-e24e1b) to generate new color variations.
+
+> Update the new color values inside `src/lib/styles/utils/_colors.scss`, make sure to define it in both light and dark theme.
+
+> You can name the colors variation secondary, it must be sorted according to contrast in which 100 take the darkest variation and the largest number as the lightest color.
+
+> Update `color.stories.mdx` with the newly generated colors.
