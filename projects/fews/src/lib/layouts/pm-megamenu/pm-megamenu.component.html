@@ -1,0 +1,17 @@
+<div class="navigation" [ngClass]="navPartialDisplay ? 'navigation--partial-display' : 'navigation--full-display'">
+    <div class="navigation__logo-container">
+    </div>
+      <div class="navigation__menu">
+          <ng-container *ngFor="let action of actions">
+              <a class="navigation__entry"
+                  (click)="clickEntry(action)"
+                  [class.navigation__entry--active]="action.active"
+                  >
+                  <span class="navigation__action">{{action.text}}</span>
+              </a>
+          </ng-container>
+      </div>
+      <div class="navigation__logout-container">
+      </div>
+  </div>
+  
