@@ -2,7 +2,7 @@ import { Meta, Story, Canvas, Description } from '@storybook/addon-docs';
 import { moduleMetadata } from '@storybook/angular';
 import { PmMegamenuComponent } from '../../../projects/fews/src/lib/layouts/pm-megamenu/pm-megamenu.component';
 import { action } from '@storybook/addon-actions';
-import { NavigationData } from './data';
+import { MegamenuData } from './data';
 
 <Meta title="Layouts/Megamenu/Megamenu-Default" component={PmMegamenuComponent} argTypes={{}} decorators={[
   //👇 Import nested components
@@ -14,17 +14,9 @@ import { NavigationData } from './data';
 <Description of={PmMegamenuComponent} />
 <Description markdown={`# Mega Menu`}/>
 
-export const actionsData = {
-  onEntryClicked: action('on entry clicked:'),
-  onLogoutClicked: action('on logout clicked:'),
-  onLogoClicked: action('Logo has been clicked:'),
-};
 export const Template = args => ({
   props: {
     ...args,
-    onEntryClicked: actionsData.onEntryClicked,
-    onLogoutClicked: actionsData.onLogoutClicked,
-    onLogoClicked: actionsData.onLogoClicked,
   },
 });
 
@@ -34,8 +26,7 @@ This contains definitions for the **Mega Menu**.
 
 <Canvas withToolbar isColumn>
   <Story name="Mega Menu" args={{
-      ...NavigationData,
-      navPartialDisplay: false,
+      ...MegamenuData,
     }}>
     {Template.bind({})}
   </Story>
