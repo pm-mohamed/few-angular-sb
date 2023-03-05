@@ -7,8 +7,12 @@ export enum TextType {
   COPY_M_BOLD_SECONDARY = "copy-m-bold-secondary",
   COPY_M_MEDIUM_PRIMARY = "copy-m-medium-primary",
   COPY_M_MEDIUM_SECONDARY = "copy-m-medium-secondary",
+  COPY_S_REGULAR_PRIMARY = "copy-s-regular-primary",
+  COPY_S_BOLD_PRIMARY = "copy-s-bold-primary",
+  COPY_S_BOLD_SECONDARY = "copy-s-bold-secondary",
   COPY_S_MEDIUM_PRIMARY = "copy-s-medium-primary",
   COPY_S_MEDIUM_SECONDARY = "copy-s-medium-secondary",
+  COPY_S_LIGHT_PRIMARY = "copy-s-light-primary",
 }
 
 @Component({
