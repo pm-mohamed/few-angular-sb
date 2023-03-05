@@ -7,6 +7,7 @@
   --button-bg-hover-color: transparent;
   --button-bg-active-color: transparent;
   --button-bg-disabled-color: transparent;
+  --button-color: var(--clr-neutral-300);
   --button-hover-color: var(--clr-secondary-300);
   --button-border-color: transparent;
   --button-border-disabled-color: transparent;
@@ -26,7 +27,7 @@
   cursor: pointer;
   padding: var(--button-padding);
   border: #{f.rem(2)} solid var(--button-border-color);
-  border-radius: f.rem(4);
+  border-radius: f.rem(0);
   min-width: var(--button-min-width);
   height: var(--button-height);
   text-align: initial;
@@ -43,6 +44,7 @@
     margin: 0 f.rem(4);
     text-decoration: var(--button-text-decoration);
     white-space: nowrap;
+    color: var(--button-color);
   }
 
   &--primary {
@@ -57,6 +59,21 @@
     --button-min-width: #{f.rem(53)};
     --button-padding: #{f.rem(11)} #{f.rem(16)};
     --button-border-color: var(--clr-neutral-500);
+  }
+
+  &--secondary {
+    --button-hover-color: var(--clr-primary-300);
+    --button-bg-color: var(--clr-primary-100);
+    --button-bg-hover-color: var(--clr-primary-300);
+    --button-bg-active-color: var(--clr-primary-100);
+    --button-bg-disabled-color: var(--clr-neutral-700);
+    --button-height: #{f.rem(43)};
+    --button-icon-margin-horizontal: #{f.rem(0)};
+    --button-icon-margin-top: #{f.rem(0)};
+    --button-min-width: #{f.rem(53)};
+    --button-padding: #{f.rem(11)} #{f.rem(16)};
+    --button-color: var(--clr-neutral-900);
+    border: none;
   }
 
   &:hover, &--hover {

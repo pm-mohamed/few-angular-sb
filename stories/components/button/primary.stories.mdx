@@ -80,6 +80,32 @@ This contains definitions for all **Primary-Buttons**.
   </Story>
 </Canvas>
 
+## Primary Button - Text with Left Sort Icon Variation
+
+<Canvas withToolbar isColumn>
+  <Story name="Primary Text with Left Sort Icon" args={{
+      ...ButtonData,
+      label: 'SORTIEREN',
+      type: ButtonType.PRIMARY,
+      iconPosition: IconPosition.LEFT,
+      icon: Icon.SORT,
+      iconRotation: 0,
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="Primary Text with Left Sort Icon Disabled" args={{
+      ...ButtonData,
+      label: 'SORTIEREN',
+      type: ButtonType.PRIMARY,
+      disabled: true,
+      iconPosition: IconPosition.LEFT,
+      icon: Icon.SORT,
+      iconRotation: 0,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
 ## Primary Button - with Favorite Icon without Text
 
 <Canvas withToolbar isColumn>
