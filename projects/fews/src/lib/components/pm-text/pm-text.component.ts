@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export enum TextType {
   H4 = "h4",
+  COPY_L_BOLD = "copy-l-bold",
   COPY_S_MEDIUM_PRIMARY = "copy-s-medium-primary",
   COPY_S_MEDIUM_SECONDARY = "copy-s-medium-secondary",
 }
