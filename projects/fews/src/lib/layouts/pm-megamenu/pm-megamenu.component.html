@@ -1,18 +1,20 @@
-<div class="">
-  <div class="">
+<div class="mega-menu__container">
+  <div class="mega-menu__products-container">
     <ng-container *ngFor="let action of actions">
-      <div class="">
-        <span class="">{{ action.categoryName }}</span>
-      </div>
-      <div class="">
-        <span class="">{{ action.subCategoryOne }}</span>
-        <span class="">{{ action.subCategoryTwo }}</span>
-        <span class="">{{ action.subCategoryThree }}</span>
-        <span class="">{{ action.subCategoryFour }}</span>
+      <div class="mega-menu__category-container">
+        <div class="mega-menu__category-title-container">
+          <span class="mega-menu__title-text">{{ action.categoryName }}</span>
+        </div>
+        <div class="mega-menu__category-items-container">
+          <span class="mega-menu__category-text">{{ action.subCategoryOne }}</span>
+          <span class="mega-menu__category-text">{{ action.subCategoryTwo }}</span>
+          <span class="mega-menu__category-text">{{ action.subCategoryThree }}</span>
+          <span class="mega-menu__category-text">{{ action.subCategoryFour }}</span>
+        </div>
       </div>
     </ng-container>
   </div>
-  <div class="">
-    <img [src]="megamenuImg" />
+  <div class="mega-menu__img-container">
+    <img class="mega-menu__img" [src]="megamenuImg" />
   </div>
 </div>
