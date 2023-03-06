@@ -1,2 +1,21 @@
 @use '../../styles/utils/mixins' as m;
 @use '../../styles/utils/functions' as f;
+
+.img-preview{
+    &__container {
+        display: grid;
+        grid-template-columns: #{f.rem(144)} #{f.rem(467)};
+        grid-column-gap: #{f.rem(20)};
+    }
+
+    &__sm-img-container {
+        display: grid;
+        grid-row-gap: #{f.rem(24)};
+    }
+
+    &__main-img {
+        img{
+            height: 100%;
+        }
+    }
+}
